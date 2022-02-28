@@ -1,12 +1,21 @@
 #!/usr/bin/python3
 
+#Imports
 import os
+from datetime import date
 
+#Get Date
+today = date.today()
+
+#Ask for Project name and binary name
 csfml = input("Select Project:\n1: CSFML\n2: Basic")
 name = input("Select Name of binary:")
 
+#------------------------------ Create MakeFile ------------------------------#
+
+#CSFML
 MakeFile1:str = """##
-## EPITECH PROJECT, 2022
+## EPITECH PROJECT, {}
 ## Base MakeFile
 ## File description:
 ## Makefile
@@ -50,10 +59,11 @@ run: re
 debug: CPPFLAGS += -g
 debug: re
 
-.PHONY: all clean fclean re run debug""".format(name, name)
+.PHONY: all clean fclean re run debug""".format(today.year, name, name)
 
+#Basic
 MakeFile2:str = """##
-## EPITECH PROJECT, 2022
+## EPITECH PROJECT, {}
 ## Base MakeFile
 ## File description:
 ## Makefile
@@ -136,12 +146,13 @@ run: re
 debug: CPPFLAGS += -g
 debug: re
 
-.PHONY: all clean fclean re run debug""".format(name, name)
+.PHONY: all clean fclean re run debug""".format(today.year, name, name)
 
+#------------------------------ Create Includes ------------------------------#
 
-
+#CSFML
 Include1:str = """/*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, {}
 ** Base Include
 ** File description:
 ** {}
@@ -163,10 +174,11 @@ Include1:str = """/*
 
 int {}(int args, char **arg);
 
-#endif /* !{}_H_ */""".format(name, name.upper(), name.upper(), name, name.upper())
+#endif /* !{}_H_ */""".format(today.year, name, name.upper(), name.upper(), name, name.upper())
 
+#Basic
 Include2:str = """/*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, {}
 ** Base Include
 ** File description:
 ** {}
@@ -185,7 +197,9 @@ Include2:str = """/*
 
 int {}(int args, char **arg);
 
-#endif /* !{}_H_ */""".format(name, name.upper(), name.upper(), name, name.upper())
+#endif /* !{}_H_ */""".format(today.year, name, name.upper(), name.upper(), name, name.upper())
+
+#------------------------------ Create GitIgnore ------------------------------#
 
 gitignore_str:str = """{}
 .vscode
@@ -193,8 +207,10 @@ gitignore_str:str = """{}
 *.a
 .gc*""".format(name)
 
+#------------------------------ Create Main File ------------------------------#
+
 main_str:str = """/*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, {}
 ** Base Main
 ** File description:
 ** {} main file
@@ -206,10 +222,12 @@ int main(int ac, char **av, char **env)
 {{
     return 0;
 }}
-""".format(name, name)
+""".format(today.year, name, name)
+
+#------------------------------ Create Project ------------------------------#
 
 project_str:str = """/*
-** EPITECH PROJECT, 2022
+** EPITECH PROJECT, {}
 ** Base Project file
 ** File description:
 ** {} project file
@@ -221,7 +239,9 @@ int {}(int args, char **arg)
 {{
     return 0;
 }}
-""".format(name, name, name)
+""".format(today.year, name, name, name)
+
+#------------------------------ Create ReadMe ------------------------------#
 
 readme_str:str = """<h1 align="center">
   <br>
@@ -232,8 +252,12 @@ readme_str:str = """<h1 align="center">
 <h4 align="center">Epitech Project PROMO 2026: {}</h4>
 """.format(name, name)
 
+#------------------------------ Create Folders ------------------------------#
+
 os.mkdir("include")
 os.mkdir("src")
+
+#------------------------------ Create Files ------------------------------#
 
 MakeFile = open("Makefile", "w")
 Include = open("include/{}.h".format(name), "w")
@@ -241,6 +265,9 @@ Main = open("main.c".format(name), "w")
 Project = open("src/{}.c".format(name), "w")
 GitIgnore = open(".gitignore", "w")
 Readme = open("ReadMe.md", "w")
+
+#------------------------------ Write Files ------------------------------#
+
 if csfml == "1":
     MakeFile.write(MakeFile1)
     Include.write(Include1)
@@ -251,6 +278,9 @@ GitIgnore.write(gitignore_str)
 Readme.write(readme_str)
 Main.write(main_str)
 Project.write(project_str)
+
+#------------------------------ Push initialization ------------------------------#
+
 os.system("git add Makefile")
 os.system("""git commit -m "[ADD] Basic MakeFile" """)
 os.system("git add include")
