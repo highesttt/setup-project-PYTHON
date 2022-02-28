@@ -1,0 +1,5 @@
+my_basic_project
+.vscode
+*.o
+*.a
+.gc*

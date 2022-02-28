@@ -1,0 +1,5 @@
+my_csfml_project
+.vscode
+*.o
+*.a
+.gc*
