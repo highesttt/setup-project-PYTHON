@@ -10,6 +10,7 @@
 ## How To Use
 
 ```bash
+Make sure you have python 3+ installed: https://www.python.org/downloads/
 $ setup-project
 ```
 
