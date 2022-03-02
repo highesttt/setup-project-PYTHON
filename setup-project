@@ -21,7 +21,7 @@ MakeFile1:str = """##
 ## Makefile
 ##
 
-SRC			=	src/{}.c
+SRC		=	src/{}.c
 
 MAIN 		=	main.c
 
@@ -69,7 +69,7 @@ MakeFile2:str = """##
 ## Makefile
 ##
 
-SRC			=	src/{}.c
+SRC		=	src/{}.c
 
 MAIN 		=	main.c
 
