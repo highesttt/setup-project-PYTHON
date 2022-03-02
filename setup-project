@@ -23,15 +23,15 @@ MakeFile1:str = """##
 
 SRC		=	src/{}.c
 
-MAIN 		=	main.c
+MAIN		=	main.c
 
-MAIN_OBJ 	=	$(MAIN:.c=.o)
+MAIN_OBJ	=	$(MAIN:.c=.o)
 
-SRC_OBJ 	= 	$(SRC:.c=.o)
+SRC_OBJ		= 	$(SRC:.c=.o)
 
 NAME		=	{}
 
-CPPFLAGS 	=	-I ./include -W -Wall -Wextra -O2
+CPPFLAGS	=	-I ./include -W -Wall -Wextra -O2
 
 LIBCSFML	=	-lcsfml-graphics -lcsfml-system -lcsfml-audio
 
@@ -71,15 +71,15 @@ MakeFile2:str = """##
 
 SRC		=	src/{}.c
 
-MAIN 		=	main.c
+MAIN		=	main.c
 
-MAIN_OBJ 	=	$(MAIN:.c=.o)
+MAIN_OBJ	=	$(MAIN:.c=.o)
 
-SRC_OBJ 	= 	$(SRC:.c=.o)
+SRC_OBJ		= 	$(SRC:.c=.o)
 
 NAME		=	{}
 
-CPPFLAGS 	=	-I ./include -W -Wall -Wextra -O2
+CPPFLAGS	=	-I ./include -W -Wall -Wextra -O2
 
 all:		$(NAME)
 
