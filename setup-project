@@ -3,6 +3,7 @@
 #Imports
 import os
 from datetime import date
+import time
 
 #Get Date
 today = date.today()
@@ -281,16 +282,8 @@ Project.write(project_str)
 
 #------------------------------ Push initialization ------------------------------#
 
-os.system("git add Makefile")
-os.system("""git commit -m "[ADD] Basic MakeFile" """)
-os.system("git add include")
-os.system("""git commit -m "[ADD] Basic Include" """)
-os.system("git add .gitignore")
-os.system("""git commit -m "[ADD] Basic GitIgnore" """)
-os.system("git add main.c")
-os.system("""git commit -m "[ADD] Basic main.c" """)
-os.system("git add src")
-os.system("""git commit -m "[ADD] Basic source files" -m "Added Basic {}.c" """.format(name))
-os.system("git add ReadMe.md")
-os.system("""git commit -m "[ADD] Basic ReadMe" """)
+time.sleep(1)
+
+os.system("git add --all")
+os.system("""git commit -m "[INIT] Initalized project" """)
 os.system("git push")
