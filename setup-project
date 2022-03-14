@@ -24,11 +24,11 @@ MakeFile1:str = """##
 
 SRC			=	src/{}.c
 
+OBJ			= 	$(SRC:.c=.o)
+
 MAIN		=	main.c
 
 MAIN_OBJ	=	$(MAIN:.c=.o)
-
-SRC_OBJ		= 	$(SRC:.c=.o)
 
 NAME		=	{}
 
@@ -38,8 +38,8 @@ LIBCSFML	=	-lcsfml-graphics -lcsfml-system -lcsfml-audio
 
 all:		$(NAME)
 
-$(NAME): $(MAIN_OBJ) $(SRC_OBJ)
-	gcc -o $(NAME) $(SRC_OBJ) $(MAIN_OBJ) $(LIBCSFML) $(CPPFLAGS)
+$(NAME): $(MAIN_OBJ) $(OBJ)
+	gcc -o $(NAME) $(OBJ) $(MAIN_OBJ) $(LIBCSFML) $(CPPFLAGS)
 
 clean:
 	rm -f *~
@@ -72,11 +72,11 @@ MakeFile2:str = """##
 
 SRC			=	src/{}.c
 
+OBJ			= 	$(SRC:.c=.o)
+
 MAIN		=	main.c
 
 MAIN_OBJ	=	$(MAIN:.c=.o)
-
-SRC_OBJ		= 	$(SRC:.c=.o)
 
 NAME		=	{}
 
@@ -84,8 +84,8 @@ CPPFLAGS	=	-I ./include -W -Wall -Wextra -O2
 
 all:		$(NAME)
 
-$(NAME): $(MAIN_OBJ) $(SRC_OBJ)
-	gcc -o $(NAME) $(SRC_OBJ) $(MAIN_OBJ) $(CPPFLAGS)
+$(NAME): $(MAIN_OBJ) $(OBJ)
+	gcc -o $(NAME) $(OBJ) $(MAIN_OBJ) $(CPPFLAGS)
 
 clean:
 	rm -f *~
